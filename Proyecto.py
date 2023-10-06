@@ -64,6 +64,19 @@ def mostrarDatos():
             "type:", i["type"], "\n"
             )
 
+# Función que muestra todos los datos de los amiibos según los datos que se le pasen
+def mostrarDatos(datosAMostrar):
+   for i in datosAMostrar:
+      print("amiiboSeries:",i["amiiboSeries"], "\n"
+            "character:", i["character"], "\n"
+            "gameSeries:", i["gameSeries"], "\n"
+            "id:", i["head"] + i["tail"], "\n"
+            "image:", i["image"], "\n"
+            "name:", i["name"], "\n"
+            "release(eu):", i["release"]["eu"], "\n"
+            "type:", i["type"], "\n"
+            )
+
 # Función que cambia el filtro de la API
 def cambiarFiltro():
    print("Filtros disponibles: ")
@@ -93,7 +106,7 @@ def mostrarDatosSinFiltro():
    #Auxiliar para no perder los datos originales
    rAux = requests.get("https://www.amiiboapi.com/api/amiibo/")
    datosAux = rAux.json()
-   mostrarDatos()
+   mostrarDatos(datosAux)
 
 # Función que muestra los amiibos que salieron en una fecha
 def mostrarSegunFecha():
