@@ -86,6 +86,12 @@ def cambiarFiltro():
    print("release(eu)")
    print("type")
    filtro = input("Ingrese el filtro: ")
+   if filtro == "id":
+      filtro = input("¿Buscamos por head o tail?: (H/T) ") #Uso la misma variable para no crear otra innecesariamente
+      if filtro == "H":
+         filtro = "head"
+      elif filtro == "T":
+         filtro = "tail"
    valor = input("Ingrese el valor: ")
    r = requests.get("https://www.amiiboapi.com/api/amiibo/?" + filtro + "=" + valor)
    datos = r.json()
