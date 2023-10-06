@@ -3,6 +3,10 @@ import requests
 
 r = requests.get("https://www.amiiboapi.com/api/amiibo/?amiiboSeries=Super%20Mario%20Bros.")
 datos = r.json()
+lista = []
+for i in datos["amiibo"]:
+   lista.append(i)
+datos = lista
 # Ejemplo de datos
 #{
 #      "amiiboSeries": "Super Mario Bros.",
@@ -28,7 +32,7 @@ datos = r.json()
 # Función que muestra la lista de nombres de los amiibos
 def mostrarListaNombres():
    cont = 0
-   for i in datos["amiibo"]:
+   for i in datos:
       print(i["name"])
       cont += 1
    print("Total de amiibos: ", cont)
@@ -37,7 +41,7 @@ def mostrarListaNombres():
 def buscarPorNombre():
    nombre = input("Ingrese el nombre del amiibo: ")
    cont = 0
-   for i in datos["amiibo"]:
+   for i in datos:
       if i["name"] == nombre:
          print("Nombre: ", i["name"])
          print("Serie: ", i["amiiboSeries"])
@@ -49,7 +53,7 @@ def buscarPorNombre():
 
 # Función que muestra todos los datos de los amiibos
 def mostrarDatos():
-   for i in datos["amiibo"]:
+   for i in datos:
       print("amiiboSeries:",i["amiiboSeries"], "\n"
             "character:", i["character"], "\n"
             "gameSeries:", i["gameSeries"], "\n"
@@ -59,20 +63,6 @@ def mostrarDatos():
             "release(eu):", i["release"]["eu"], "\n"
             "type:", i["type"], "\n"
             )
-
-# Función que muestra todos los datos de los amiibos en forma de lista
-def mostrarLista():
-   lista = []
-   for i in datos["amiibo"]:
-      lista.append(i["amiiboSeries"])
-      lista.append(i["character"])
-      lista.append(i["gameSeries"])
-      lista.append(i["head"] + i["tail"])
-      lista.append(i["image"])
-      lista.append(i["name"])
-      lista.append(i["release"]["eu"])
-      lista.append(i["type"])
-   print(lista)
 
 # Función que cambia el filtro de la API
 def cambiarFiltro():
@@ -100,15 +90,16 @@ def cambiarFiltro():
 
 # Función que muestra todos los datos de los amiibos sin filtro
 def mostrarDatosSinFiltro():
-   r = requests.get("https://www.amiiboapi.com/api/amiibo/")
-   datos = r.json()
+   #Auxiliar para no perder los datos originales
+   rAux = requests.get("https://www.amiiboapi.com/api/amiibo/")
+   datosAux = rAux.json()
    mostrarDatos()
 
 # Función que muestra los amiibos que salieron en una fecha
 def mostrarSegunFecha():
    fecha = input("Ingrese la fecha (yyyy-mm-dd): ")
    cont = 0
-   for i in datos["amiibo"]:
+   for i in datos:
       if i["release"]["eu"] == fecha:
          print("Nombre: ", i["name"])
          print("Serie: ", i["amiiboSeries"])
@@ -126,10 +117,9 @@ while opcion != 0:
    print("1. Mostrar lista de nombres")
    print("2. Buscar amiibos por nombre")
    print("3. Mostrar datos")
-   print("4. Mostrar datos en forma de lista")
-   print("5. Cambiar filtro de la API")
-   print("6. Mostrar todos los datos sin filtro")
-   print("7. Mostrar amiibos que salieron en una fecha")
+   print("4. Cambiar filtro de la API")
+   print("5. Mostrar todos los datos sin filtro")
+   print("6. Mostrar amiibos que salieron en una fecha")
    print("0. Salir")
    print("-------------------------")
    opcion = int(input("Ingrese una opción: "))
@@ -140,12 +130,10 @@ while opcion != 0:
    elif opcion == 3:
       mostrarDatos()
    elif opcion == 4:
-      mostrarLista()
-   elif opcion == 5:
       cambiarFiltro()
-   elif opcion == 6:
+   elif opcion == 5:
       mostrarDatosSinFiltro()
-   elif opcion == 7:
+   elif opcion == 6:
       mostrarSegunFecha()
    elif opcion == 0:
       print("Saliendo...")
