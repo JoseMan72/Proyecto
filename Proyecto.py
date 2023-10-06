@@ -85,6 +85,7 @@ def cambiarFiltro():
    print("name")
    print("release(eu)")
    print("type")
+
    filtro = input("Ingrese el filtro: ")
    if filtro == "id":
       filtro = input("¿Buscamos por head o tail?: (H/T) ") #Uso la misma variable para no crear otra innecesariamente
@@ -92,9 +93,16 @@ def cambiarFiltro():
          filtro = "head"
       elif filtro == "T":
          filtro = "tail"
+   
    valor = input("Ingrese el valor: ")
    r = requests.get("https://www.amiiboapi.com/api/amiibo/?" + filtro + "=" + valor)
    datos = r.json()
+
+# Función que muestra todos los datos de los amiibos sin filtro
+def mostrarDatosSinFiltro():
+   r = requests.get("https://www.amiiboapi.com/api/amiibo/")
+   datos = r.json()
+   mostrarDatos()
 
 #----------Programa Principal----------
 # print del menú que hace llamadas a las funciones
@@ -106,6 +114,7 @@ while opcion != 0:
    print("3. Mostrar datos")
    print("4. Mostrar datos en forma de lista")
    print("5. Cambiar filtro de la API")
+   print("6. Mostrar todos los datos sin filtro")
    print("0. Salir")
    print("-------------------------")
    opcion = int(input("Ingrese una opción: "))
@@ -119,6 +128,8 @@ while opcion != 0:
       mostrarLista()
    elif opcion == 5:
       cambiarFiltro()
+   elif opcion == 6:
+      mostrarDatosSinFiltro()
    elif opcion == 0:
       print("Saliendo...")
    else:
