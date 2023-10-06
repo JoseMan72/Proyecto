@@ -104,6 +104,20 @@ def mostrarDatosSinFiltro():
    datos = r.json()
    mostrarDatos()
 
+# Función que muestra los amiibos que salieron en una fecha
+def mostrarSegunFecha():
+   fecha = input("Ingrese la fecha (yyyy-mm-dd): ")
+   cont = 0
+   for i in datos["amiibo"]:
+      if i["release"]["eu"] == fecha:
+         print("Nombre: ", i["name"])
+         print("Serie: ", i["amiiboSeries"])
+         print("Fecha de lanzamiento: ", i["release"]["eu"])
+         cont += 1
+   if cont == 0:
+      print("No se encontró ningún amiibo con esa fecha")
+   print("\nTotal de amiibos: ", cont, "\n")
+
 #----------Programa Principal----------
 # print del menú que hace llamadas a las funciones
 opcion = 1 #inicializar variable para que entre al while
@@ -115,6 +129,7 @@ while opcion != 0:
    print("4. Mostrar datos en forma de lista")
    print("5. Cambiar filtro de la API")
    print("6. Mostrar todos los datos sin filtro")
+   print("7. Mostrar amiibos que salieron en una fecha")
    print("0. Salir")
    print("-------------------------")
    opcion = int(input("Ingrese una opción: "))
@@ -130,6 +145,8 @@ while opcion != 0:
       cambiarFiltro()
    elif opcion == 6:
       mostrarDatosSinFiltro()
+   elif opcion == 7:
+      mostrarSegunFecha()
    elif opcion == 0:
       print("Saliendo...")
    else:
