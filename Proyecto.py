@@ -23,6 +23,9 @@ datos = r.json()
 # Donde head y tail forman el id del amiibo
 
 
+#----------Funciones----------
+
+# Función que muestra la lista de nombres de los amiibos
 def mostrarListaNombres():
    cont = 0
    for i in datos["amiibo"]:
@@ -30,7 +33,7 @@ def mostrarListaNombres():
       cont += 1
    print("Total de amiibos: ", cont)
 
-
+# Función que busca un amiibo por nombre
 def buscarPorNombre():
    nombre = input("Ingrese el nombre del amiibo: ")
    cont = 0
@@ -44,6 +47,7 @@ def buscarPorNombre():
       print("No se encontró ningún amiibo con ese nombre")
    print("\nTotal de amiibos: ", cont, "\n")
 
+# Función que muestra todos los datos de los amiibos
 def mostrarDatos():
    for i in datos["amiibo"]:
       print("amiiboSeries:",i["amiiboSeries"], "\n"
@@ -56,6 +60,7 @@ def mostrarDatos():
             "type:", i["type"], "\n"
             )
 
+# Función que muestra todos los datos de los amiibos en forma de lista
 def mostrarLista():
    lista = []
    for i in datos["amiibo"]:
@@ -69,6 +74,7 @@ def mostrarLista():
       lista.append(i["type"])
    print(lista)
 
+# Función que cambia el filtro de la API
 def cambiarFiltro():
    print("Filtros disponibles: ")
    print("amiiboSeries")
@@ -84,6 +90,7 @@ def cambiarFiltro():
    r = requests.get("https://www.amiiboapi.com/api/amiibo/?" + filtro + "=" + valor)
    datos = r.json()
 
+#----------Programa Principal----------
 # print del menú que hace llamadas a las funciones
 opcion = 1 #inicializar variable para que entre al while
 while opcion != 0:
