@@ -1,0 +1,2 @@
+Crear un archivo para los paquetes usando pip3 install -r requirements.txt:
+<nombre_paquete>~=<version_paquete>
