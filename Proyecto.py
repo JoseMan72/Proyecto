@@ -122,6 +122,33 @@ def mostrarSegunFecha():
       print("No se encontró ningún amiibo con esa fecha")
    print("\nTotal de amiibos: ", cont, "\n")
 
+# Función que modifica los datos
+def modificarDatos():
+   opcion = 1
+   while opcion != 0:
+      print("¿Borrar o añadir dato?: (B/A)")
+      opcion = input()
+      if opcion == "B":
+         id = input("id del amiibo a borrar: ")
+         for i in datos:
+            if i["head"] + i["tail"] == id:
+               datos.remove(i)
+               print("Amiibo borrado")
+      elif opcion == "A":
+         amiiboNuevo = {}
+         amiiboNuevo["amiiboSeries"] = input("amiiboSeries: ")
+         amiiboNuevo["character"] = input("character: ")
+         amiiboNuevo["gameSeries"] = input("gameSeries: ")
+         amiiboNuevo["head"] = input("head: ")
+         amiiboNuevo["image"] = input("image: ")
+         amiiboNuevo["name"] = input("name: ")
+         amiiboNuevo["release"] = {}
+         amiiboNuevo["release"]["eu"] = input("release(eu): ")
+         amiiboNuevo["tail"] = input("tail: ")
+         amiiboNuevo["type"] = input("type: ")
+         datos.append(amiiboNuevo)
+         print("Amiibo añadido")
+
 #----------Programa Principal----------
 # print del menú que hace llamadas a las funciones
 opcion = 1 #inicializar variable para que entre al while
@@ -133,6 +160,7 @@ while opcion != 0:
    print("4. Cambiar filtro de la API")
    print("5. Mostrar todos los datos sin filtro")
    print("6. Mostrar amiibos que salieron en una fecha")
+   print("7. Modificar datos")
    print("0. Salir")
    print("-------------------------")
    opcion = int(input("Ingrese una opción: "))
@@ -148,6 +176,8 @@ while opcion != 0:
       mostrarDatosSinFiltro()
    elif opcion == 6:
       mostrarSegunFecha()
+   elif opcion == 7:
+      modificarDatos()
    elif opcion == 0:
       print("Saliendo...")
    else:
