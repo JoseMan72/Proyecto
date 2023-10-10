@@ -10,5 +10,3 @@ import requests
 url = "https://raw.githubusercontent.com/cesaralvrz/curso-python/master/alumnado.json"
 r = requests.get(url)
 fichero = r.json()
-
-requests~=2.31.0
