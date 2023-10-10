@@ -9,6 +9,8 @@ El Python usado es el Python 3.11.6 junto a la biblioteca requests en la versió
    Otra manera de instalar todas las bibliotecas necesarias es ejecutando el comando `pip install -r requirements.txt` ya que este archivo
    contiene todas las bibliotecas necesarias para ejecutar el programa.
 
+La mejor manera de descargarse al programa, es clonar el repositorio desde vscode o desde la terminal con el comando git clone.
+
 
 Este proyecto cuenta con 6 funcionalidades dentro de las cuales se encuentran:
 1- Mostrar lista de nombres de los Amiibos.
