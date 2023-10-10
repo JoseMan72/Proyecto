@@ -67,7 +67,7 @@ def mostrarDatos():
             )
 
 # Función que muestra todos los datos de los amiibos según los datos que se le pasen
-def mostrarDatos(datosAMostrar):
+def mostrarDatos2(datosAMostrar):
    for i in datosAMostrar:
       print("amiiboSeries:",i["amiiboSeries"], "\n"
             "character:", i["character"], "\n"
@@ -108,7 +108,7 @@ def mostrarDatosSinFiltro():
    #Auxiliar para no perder los datos originales
    rAux = requests.get("https://www.amiiboapi.com/api/amiibo/")
    datosAux = rAux.json()
-   mostrarDatos(datosAux)
+   mostrarDatos2(datosAux)
 
 # Función que muestra los amiibos que salieron en una fecha
 def mostrarSegunFecha():

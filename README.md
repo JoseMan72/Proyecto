@@ -32,7 +32,7 @@ Este proyecto cuenta con 6 funcionalidades dentro de las cuales se encuentran:
    Esta funcionalidad muestra los amiibos que salieron en una fecha seleccionada por el usuario.
 
 7- Modificar datos
-   Esta funcionalidad modifica los datos de la API, ya sea añadir un amiibo o eliminarlo.
+   Esta funcionalidad modifica los datos de la API, ya sea añadir un amiibo, eliminarlo o modificar uno existente.
 
 Para ejecutar el programa se debe ejecutar el archivo proyecto.py, como un archivo de Python desde la terminal usando el comando 
 `python3 proyecto.py` o desde un IDE.
