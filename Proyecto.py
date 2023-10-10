@@ -137,7 +137,7 @@ def modificarDatos():
    while opcion != 0:
       print("¿Borrar o añadir o modificar dato?: (1/2/3)")
       print("0. Salir")
-      opcion = input()
+      opcion = int(input())
       if opcion == 1:
          id = input("id del amiibo a borrar: ")
          for i in datos:
@@ -147,23 +147,14 @@ def modificarDatos():
       elif opcion == 2:
          amiiboNuevo = {}
          print("Ingrese los datos del amiibo: ")
-         print("amiiboSeries")
          amiiboNuevo["amiiboSeries"] = input("amiiboSeries: ")
-         print("character")
          amiiboNuevo["character"] = input("character: ")
-         print("gameSeries")
          amiiboNuevo["gameSeries"] = input("gameSeries: ")
-         print("head")
          amiiboNuevo["head"] = input("head: ")
-         print("image")
          amiiboNuevo["image"] = input("image: ")
-         print("name")
          amiiboNuevo["name"] = input("name: ")
-         print("release(eu)")
          amiiboNuevo["release"]["eu"] = input("release(eu): ")
-         print("tail")
          amiiboNuevo["tail"] = input("tail: ")
-         print("type")
          amiiboNuevo["type"] = input("type: ")
 
          #Añado el amiibo a la lista
@@ -200,31 +191,22 @@ def modificarDatos():
                while opcion != 0:
                   opcion = input()
                   if opcion == 1:
-                     print("amiiboSeries")
                      i["amiiboSeries"] = input("amiiboSeries: ")
                   elif opcion == 2:
-                     print("character")
                      i["character"] = input("character: ")
                   elif opcion == 3:
-                     print("gameSeries")
                      i["gameSeries"] = input("gameSeries: ")
                   elif opcion == 4:
-                     print("head")
                      i["head"] = input("head: ")
                   elif opcion == 5:
-                     print("image")
                      i["image"] = input("image: ")
                   elif opcion == 6:
-                     print("name")
                      i["name"] = input("name: ")
                   elif opcion == 7:
-                     print("release(eu)")
                      i["release"]["eu"] = input("release(eu): ")
                   elif opcion == 8:
-                     print("tail")
                      i["tail"] = input("tail: ")
                   elif opcion == 9:
-                     print("type")
                      i["type"] = input("type: ")
                   elif opcion == 0:
                      print("Saliendo...")
