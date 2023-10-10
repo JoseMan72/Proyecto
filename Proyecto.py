@@ -129,6 +129,7 @@ def modificarDatos():
    opcion = 1
    while opcion != 0:
       print("¿Borrar o añadir dato?: (B/A)")
+      print("0. Salir")
       opcion = input()
       if opcion == "B":
          id = input("id del amiibo a borrar: ")
@@ -150,6 +151,8 @@ def modificarDatos():
          amiiboNuevo["type"] = input("type: ")
          datos.append(amiiboNuevo)
          print("Amiibo añadido")
+      elif opcion != 0:
+         print("Opción incorrecta\n")
 
 #*----------Programa Principal----------*
 # print del menú que hace llamadas a las funciones
