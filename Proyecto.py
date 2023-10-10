@@ -51,8 +51,7 @@ def buscarPorNombre():
          print("Fecha de lanzamiento: ", i["release"]["eu"])
          cont += 1
    if cont == 0:
-      print("No se encontró ningún amiibo con ese nombre")
-   print("\nTotal de amiibos: ", cont, "\n")
+      print("No se encontró ningún amiibo con ese nombre \n")
 
 # Función que muestra todos los datos de los amiibos
 def mostrarDatos():
@@ -156,7 +155,7 @@ def modificarDatos():
 # print del menú que hace llamadas a las funciones
 opcion = 1 #inicializar variable para que entre la primera vez al while
 while opcion != 0:
-   print("----------Menú----------")
+   print("--------------------Menú--------------------")
    print("1. Mostrar lista de nombres")
    print("2. Buscar amiibos por nombre")
    print("3. Mostrar datos")
@@ -165,7 +164,7 @@ while opcion != 0:
    print("6. Mostrar amiibos que salieron en una fecha")
    print("7. Modificar datos")
    print("0. Salir")
-   print("-------------------------")
+   print("--------------------------------------------")
    opcion = int(input("Ingrese una opción: "))
 
    #Llamadas a las funciones según la opción elegida
@@ -186,4 +185,4 @@ while opcion != 0:
    elif opcion == 0:
       print("Saliendo...")
    else:
-      print("Opción incorrecta, elija una opciones del menú (0-7)")
+      print("Opción incorrecta, elija una opciones del menú (0-7) \n")
