@@ -81,6 +81,7 @@ def mostrarDatos2(datosAMostrar):
 
 # Función que cambia el filtro de la API
 def cambiarFiltro():
+   global datos
    print("Filtros disponibles: ")
    print("amiiboSeries")
    print("character")
@@ -93,15 +94,20 @@ def cambiarFiltro():
 
    filtro = input("Ingrese el filtro: ")
    if filtro == "id":
-      filtro = input("¿Buscamos por head o tail?: (H/T) ") #Uso la misma variable para no crear otra innecesariamente
-      if filtro == "H":
+      id = input("¿Buscamos por head o tail?: (H/T) ")
+      if id == "H":
          filtro = "head"
-      elif filtro == "T":
+      elif id == "T":
          filtro = "tail"
    
    valor = input("Ingrese el valor: ")
    r = requests.get("https://www.amiiboapi.com/api/amiibo/?" + filtro + "=" + valor)
    datos = r.json()
+
+   lista = []
+   for i in datos["amiibo"]:
+      lista.append(i)
+   datos = lista
 
 # Función que muestra todos los datos de los amiibos sin filtro
 def mostrarDatosSinFiltro():
@@ -126,6 +132,7 @@ def mostrarSegunFecha():
 
 # Función que modifica los datos
 def modificarDatos():
+   global datos
    opcion = 1
    while opcion != 0:
       print("¿Borrar o añadir o modificar dato?: (1/2/3)")
@@ -166,6 +173,7 @@ def modificarDatos():
          id = input("id del amiibo a modificar: ")
          for i in datos:
             if i["head"] + i["tail"] == id:
+               encontrado = True
                print("Datos del amiibo: ")
                print("amiiboSeries:",i["amiiboSeries"], "\n"
                      "character:", i["character"], "\n"
@@ -222,9 +230,9 @@ def modificarDatos():
                      print("Saliendo...")
                   else:
                      print("Opción incorrecta\n")
-            else:
-               print("No se encontró ningún amiibo con ese id\n")
-      elif opcion != 0:
+         if encontrado == False:
+            print("No se encontró ningún amiibo con ese id")
+      elif opcion != 1 and opcion != 2 and opcion != 3 and opcion != 0:
          print("Opción incorrecta\n")
 
 #*----------Programa Principal----------*
