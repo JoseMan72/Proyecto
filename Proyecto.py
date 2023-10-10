@@ -1,12 +1,15 @@
 import json
 import requests
 
+#Descarga de datos de la API
 r = requests.get("https://www.amiiboapi.com/api/amiibo/?amiiboSeries=Super%20Mario%20Bros.")
 datos = r.json()
+# Selecciono la lista de amiibos y la guardo en la variable
 lista = []
 for i in datos["amiibo"]:
    lista.append(i)
 datos = lista
+
 # Ejemplo de datos
 #{
 #      "amiiboSeries": "Super Mario Bros.",
@@ -27,7 +30,7 @@ datos = lista
 # Donde head y tail forman el id del amiibo
 
 
-#----------Funciones----------
+#*----------Funciones----------*
 
 # Función que muestra la lista de nombres de los amiibos
 def mostrarListaNombres():
@@ -149,9 +152,9 @@ def modificarDatos():
          datos.append(amiiboNuevo)
          print("Amiibo añadido")
 
-#----------Programa Principal----------
+#*----------Programa Principal----------*
 # print del menú que hace llamadas a las funciones
-opcion = 1 #inicializar variable para que entre al while
+opcion = 1 #inicializar variable para que entre la primera vez al while
 while opcion != 0:
    print("----------Menú----------")
    print("1. Mostrar lista de nombres")
@@ -164,6 +167,8 @@ while opcion != 0:
    print("0. Salir")
    print("-------------------------")
    opcion = int(input("Ingrese una opción: "))
+
+   #Llamadas a las funciones según la opción elegida
    if opcion == 1:
       mostrarListaNombres()
    elif opcion == 2:
@@ -181,4 +186,4 @@ while opcion != 0:
    elif opcion == 0:
       print("Saliendo...")
    else:
-      print("Opción incorrecta")
+      print("Opción incorrecta, elija una opciones del menú (0-7)")
