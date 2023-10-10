@@ -128,29 +128,102 @@ def mostrarSegunFecha():
 def modificarDatos():
    opcion = 1
    while opcion != 0:
-      print("¿Borrar o añadir dato?: (B/A)")
+      print("¿Borrar o añadir o modificar dato?: (1/2/3)")
       print("0. Salir")
       opcion = input()
-      if opcion == "B":
+      if opcion == 1:
          id = input("id del amiibo a borrar: ")
          for i in datos:
             if i["head"] + i["tail"] == id:
                datos.remove(i)
                print("Amiibo borrado")
-      elif opcion == "A":
+      elif opcion == 2:
          amiiboNuevo = {}
+         print("Ingrese los datos del amiibo: ")
+         print("amiiboSeries")
          amiiboNuevo["amiiboSeries"] = input("amiiboSeries: ")
+         print("character")
          amiiboNuevo["character"] = input("character: ")
+         print("gameSeries")
          amiiboNuevo["gameSeries"] = input("gameSeries: ")
+         print("head")
          amiiboNuevo["head"] = input("head: ")
+         print("image")
          amiiboNuevo["image"] = input("image: ")
+         print("name")
          amiiboNuevo["name"] = input("name: ")
-         amiiboNuevo["release"] = {}
+         print("release(eu)")
          amiiboNuevo["release"]["eu"] = input("release(eu): ")
+         print("tail")
          amiiboNuevo["tail"] = input("tail: ")
+         print("type")
          amiiboNuevo["type"] = input("type: ")
+
+         #Añado el amiibo a la lista
          datos.append(amiiboNuevo)
          print("Amiibo añadido")
+      elif opcion == 3:
+         id = input("id del amiibo a modificar: ")
+         for i in datos:
+            if i["head"] + i["tail"] == id:
+               print("Datos del amiibo: ")
+               print("amiiboSeries:",i["amiiboSeries"], "\n"
+                     "character:", i["character"], "\n"
+                     "gameSeries:", i["gameSeries"], "\n"
+                     "head:", i["head"], "\n"
+                     "image:", i["image"], "\n"
+                     "name:", i["name"], "\n"
+                     "release(eu):", i["release"]["eu"], "\n"
+                     "tail:", i["tail"], "\n"
+                     "type:", i["type"], "\n"
+                     )
+               print("¿Qué dato desea modificar?")
+               print("1. amiiboSeries")
+               print("2. character")
+               print("3. gameSeries")
+               print("4. head")
+               print("5. image")
+               print("6. name")
+               print("7. release(eu)")
+               print("8. tail")
+               print("9. type")
+               print("0. Salir")
+               opcion = 1
+               while opcion != 0:
+                  opcion = input()
+                  if opcion == 1:
+                     print("amiiboSeries")
+                     i["amiiboSeries"] = input("amiiboSeries: ")
+                  elif opcion == 2:
+                     print("character")
+                     i["character"] = input("character: ")
+                  elif opcion == 3:
+                     print("gameSeries")
+                     i["gameSeries"] = input("gameSeries: ")
+                  elif opcion == 4:
+                     print("head")
+                     i["head"] = input("head: ")
+                  elif opcion == 5:
+                     print("image")
+                     i["image"] = input("image: ")
+                  elif opcion == 6:
+                     print("name")
+                     i["name"] = input("name: ")
+                  elif opcion == 7:
+                     print("release(eu)")
+                     i["release"]["eu"] = input("release(eu): ")
+                  elif opcion == 8:
+                     print("tail")
+                     i["tail"] = input("tail: ")
+                  elif opcion == 9:
+                     print("type")
+                     i["type"] = input("type: ")
+                  elif opcion == 0:
+                     print("Saliendo...")
+                  else:
+                     print("Opción incorrecta\n")
+            else:
+               print("No se encontró ningún amiibo con ese id\n")
       elif opcion != 0:
          print("Opción incorrecta\n")
 
