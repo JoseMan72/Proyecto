@@ -42,7 +42,7 @@ def mostrarListaNombres():
 
 # Función que busca un amiibo por nombre
 def buscarPorNombre():
-   nombre = input("Ingrese el nombre del amiibo: ")
+   nombre = int(input("Ingrese el nombre del amiibo: "))
    cont = 0
    for i in datos:
       if i["name"] == nombre:
@@ -139,7 +139,7 @@ def modificarDatos():
       print("0. Salir")
       opcion = int(input())
       if opcion == 1:
-         id = input("id del amiibo a borrar: ")
+         id = int(input("id del amiibo a borrar: "))
          for i in datos:
             if i["head"] + i["tail"] == id:
                datos.remove(i)
@@ -161,7 +161,7 @@ def modificarDatos():
          datos.append(amiiboNuevo)
          print("Amiibo añadido")
       elif opcion == 3:
-         id = input("id del amiibo a modificar: ")
+         id = int(input("id del amiibo a modificar: "))
          for i in datos:
             if i["head"] + i["tail"] == id:
                encontrado = True
@@ -189,7 +189,7 @@ def modificarDatos():
                print("0. Salir")
                opcion = 1
                while opcion != 0:
-                  opcion = input()
+                  opcion = int(input())
                   if opcion == 1:
                      i["amiiboSeries"] = input("amiiboSeries: ")
                   elif opcion == 2:
