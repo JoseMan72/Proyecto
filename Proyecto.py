@@ -63,7 +63,7 @@ def mostrarDatos():
             "image:", i["image"], "\n"
             "name:", i["name"], "\n"
             "release(eu):", i["release"]["eu"], "\n"
-            "type:", i["type"], "\n"
+            "type:", i["type"], "\n\n"
             )
 
 # Función que muestra todos los datos de los amiibos según los datos que se le pasen
@@ -76,7 +76,7 @@ def mostrarDatos2(datosAMostrar):
             "image:", i["image"], "\n"
             "name:", i["name"], "\n"
             "release(eu):", i["release"]["eu"], "\n"
-            "type:", i["type"], "\n"
+            "type:", i["type"], "\n\n"
             )
 
 # Función que cambia el filtro de la API
@@ -91,8 +91,8 @@ def cambiarFiltro():
    print("name")
    print("release(eu)")
    print("type")
-
    filtro = input("Ingrese el filtro: ")
+   
    #Si el filtro es id, se le pregunta si quiere buscar por head o tail
    if filtro == "id":
       id = input("¿Buscamos por head o tail?: (H/T) ")
@@ -134,10 +134,10 @@ def mostrarSegunFecha():
 # Función que modifica los datos
 def modificarDatos():
    global datos
-   opcion = 1
-   while opcion != 0:
+   opcion = ""
+   while opcion != "S":
       print("¿Borrar o añadir o modificar dato?: (B/A/M)")
-      print("0. Salir")
+      print("Salir (S)")
       opcion = input().upper()
       if opcion == "B":
          #Lista de nombres e id de los amiibos
@@ -167,7 +167,7 @@ def modificarDatos():
          #Añado el amiibo a la lista
          datos.append(amiiboNuevo)
          print("Amiibo añadido")
-      elif opcion == 3:
+      elif opcion == "M":
          #Lista de nombres e id de los amiibos
          for i in datos:
             print(i["name"], " - ", i["head"] + i["tail"])
@@ -225,7 +225,7 @@ def modificarDatos():
                      print("Opción incorrecta\n")
          if encontrado == False:
             print("No se encontró ningún amiibo con ese id")
-      elif opcion != 1 and opcion != 2 and opcion != 3 and opcion != 0:
+      elif opcion != "B" and opcion != "A" and opcion != "M" and opcion != "S":
          print("Opción incorrecta\n")
 
 #*----------Programa Principal----------*
@@ -263,6 +263,8 @@ while opcion != 0:
       print("Saliendo...")
    else:
       print("Opción incorrecta, elija una opciones del menú (0-7) \n")
+   
+   #Preguntar si quiere volver al menú
    volver = input("¿Desea volver al menú? (S/N): ").upper()
    if volver == "N":
       opcion = 0
