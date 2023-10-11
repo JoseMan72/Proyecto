@@ -109,6 +109,7 @@ def cambiarFiltro():
    for i in datos["amiibo"]:
       lista.append(i)
    datos = lista
+   print("Filtro cambiados")
 
 # Función que muestra todos los datos de los amiibos sin filtro
 def mostrarDatosSinFiltro():
@@ -223,6 +224,7 @@ def modificarDatos():
                      print("Saliendo...")
                   else:
                      print("Opción incorrecta\n")
+               print("Amiibo modificado")
          if encontrado == False:
             print("No se encontró ningún amiibo con ese id")
       elif opcion != "B" and opcion != "A" and opcion != "M" and opcion != "S":
