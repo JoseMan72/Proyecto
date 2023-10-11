@@ -139,7 +139,11 @@ def modificarDatos():
       print("0. Salir")
       opcion = int(input())
       if opcion == 1:
-         id = int(input("id del amiibo a borrar: "))
+         #Lista de nombres e id de los amiibos
+         for i in datos:
+            print(i["name"], " - ", i["head"] + i["tail"])
+         id = input("\nid del amiibo a borrar: ")
+         #Bucle para buscar el amiibo con el id ingresado y borrarlo
          for i in datos:
             if i["head"] + i["tail"] == id:
                datos.remove(i)
@@ -161,7 +165,11 @@ def modificarDatos():
          datos.append(amiiboNuevo)
          print("Amiibo añadido")
       elif opcion == 3:
-         id = int(input("id del amiibo a modificar: "))
+         #Lista de nombres e id de los amiibos
+         for i in datos:
+            print(i["name"], " - ", i["head"] + i["tail"])
+         #Bucle para buscar el amiibo con el id ingresado y modificarlo
+         id = input("id del amiibo a modificar: ")
          for i in datos:
             if i["head"] + i["tail"] == id:
                encontrado = True
