@@ -124,7 +124,7 @@ def mostrarSegunFecha():
    cont = 0
    for i in datos:
       if i["release"]["eu"] == fecha:
-         print("Nombre: ", i["name"])
+         print("\nNombre: ", i["name"])
          print("Serie: ", i["amiiboSeries"])
          print("Fecha de lanzamiento: ", i["release"]["eu"])
          cont += 1
@@ -137,7 +137,7 @@ def modificarDatos():
    global datos
    opcion = ""
    while opcion != "S":
-      print("¿Borrar o añadir o modificar dato?: (B/A/M)")
+      print("¿Borrar, añadir o modificar dato?: (B/A/M)")
       print("Salir (S)")
       opcion = input().upper()
       if opcion == "B":
@@ -201,30 +201,38 @@ def modificarDatos():
                print("0. Salir")
                opcion = 1
                while opcion != 0:
-                  opcion = int(input())
+                  opcion = int(input("\nDato a modificar: "))
                   if opcion == 1:
                      i["amiiboSeries"] = input("amiiboSeries: ")
+                     print("Dato modificado")
                   elif opcion == 2:
                      i["character"] = input("character: ")
+                     print("Dato modificado")
                   elif opcion == 3:
                      i["gameSeries"] = input("gameSeries: ")
+                     print("Dato modificado")
                   elif opcion == 4:
                      i["head"] = input("head: ")
+                     print("Dato modificado")
                   elif opcion == 5:
                      i["image"] = input("image: ")
+                     print("Dato modificado")
                   elif opcion == 6:
                      i["name"] = input("name: ")
+                     print("Dato modificado")
                   elif opcion == 7:
                      i["release"]["eu"] = input("release(eu): ")
+                     print("Dato modificado")
                   elif opcion == 8:
                      i["tail"] = input("tail: ")
+                     print("Dato modificado")
                   elif opcion == 9:
                      i["type"] = input("type: ")
+                     print("Dato modificado")
                   elif opcion == 0:
                      print("Saliendo...")
                   else:
                      print("Opción incorrecta\n")
-               print("Amiibo modificado")
          if encontrado == False:
             print("No se encontró ningún amiibo con ese id")
       elif opcion != "B" and opcion != "A" and opcion != "M" and opcion != "S":
