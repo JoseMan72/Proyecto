@@ -68,7 +68,7 @@ def mostrarDatos():
 
 # Función que muestra todos los datos de los amiibos según los datos que se le pasen
 def mostrarDatos2(datosAMostrar):
-   for i in datosAMostrar:
+   for i in datosAMostrar["amiibo"]:
       print("amiiboSeries:",i["amiiboSeries"], "\n"
             "character:", i["character"], "\n"
             "gameSeries:", i["gameSeries"], "\n"
@@ -109,7 +109,7 @@ def cambiarFiltro():
    for i in datos["amiibo"]:
       lista.append(i)
    datos = lista
-   print("Filtro cambiados")
+   print("Filtro cambiado")
 
 # Función que muestra todos los datos de los amiibos sin filtro
 def mostrarDatosSinFiltro():
