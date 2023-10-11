@@ -93,6 +93,7 @@ def cambiarFiltro():
    print("type")
 
    filtro = input("Ingrese el filtro: ")
+   #Si el filtro es id, se le pregunta si quiere buscar por head o tail
    if filtro == "id":
       id = input("¿Buscamos por head o tail?: (H/T) ")
       if id == "H":
@@ -135,10 +136,10 @@ def modificarDatos():
    global datos
    opcion = 1
    while opcion != 0:
-      print("¿Borrar o añadir o modificar dato?: (1/2/3)")
+      print("¿Borrar o añadir o modificar dato?: (B/A/M)")
       print("0. Salir")
-      opcion = int(input())
-      if opcion == 1:
+      opcion = input().upper()
+      if opcion == "B":
          #Lista de nombres e id de los amiibos
          for i in datos:
             print(i["name"], " - ", i["head"] + i["tail"])
@@ -148,7 +149,7 @@ def modificarDatos():
             if i["head"] + i["tail"] == id:
                datos.remove(i)
                print("Amiibo borrado")
-      elif opcion == 2:
+      elif opcion == "A":
          amiiboNuevo = {}
          print("Ingrese los datos del amiibo: ")
          amiiboNuevo["amiiboSeries"] = input("amiiboSeries: ")
@@ -157,7 +158,9 @@ def modificarDatos():
          amiiboNuevo["head"] = input("head: ")
          amiiboNuevo["image"] = input("image: ")
          amiiboNuevo["name"] = input("name: ")
-         amiiboNuevo["release"]["eu"] = input("release(eu): ")
+         amiiboNuevo["release"] = {"eu": input("release(eu): ")}
+         #amiiboNuevo["release"]["eu"] = input("release(eu): ") no funciona, ya que esta intentando
+         #acceder directamente a la clave "eu" dentro de "release" antes de que "release" exista como un diccionario.
          amiiboNuevo["tail"] = input("tail: ")
          amiiboNuevo["type"] = input("type: ")
 
@@ -260,3 +263,9 @@ while opcion != 0:
       print("Saliendo...")
    else:
       print("Opción incorrecta, elija una opciones del menú (0-7) \n")
+   volver = input("¿Desea volver al menú? (S/N): ").upper()
+   if volver == "N":
+      opcion = 0
+      print("Saliendo...")
+   elif volver == "S":
+      opcion = 1
