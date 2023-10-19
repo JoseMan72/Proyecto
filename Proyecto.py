@@ -273,11 +273,3 @@ while opcion != 0:
       print("Saliendo...")
    else:
       print("Opción incorrecta, elija una opciones del menú (0-7) \n")
-   
-   #Preguntar si quiere volver al menú
-   volver = input("¿Desea volver al menú? (S/N): ").upper()
-   if volver == "N":
-      opcion = 0
-      print("Saliendo...")
-   elif volver == "S":
-      opcion = 1

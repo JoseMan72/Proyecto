@@ -1,0 +1,7 @@
+Variable global de las funciones:
+El error ocurría que en las funciones que modificaban la API o el filtro
+no se estaba usando la variable global, sino que se estaba creando una
+variable local con el mismo nombre, por lo que no se estaba modificando
+la variable global, sino una local que se eliminaba al salir de la
+función.
+
