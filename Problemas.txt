@@ -5,3 +5,19 @@ variable local con el mismo nombre, por lo que no se estaba modificando
 la variable global, sino una local que se eliminaba al salir de la
 función.
 
+inputs por defecto recogen un string:
+Los inputs por defecto recogen un string, por lo que no me funcionaba bien
+la variable opcion ya que yo lo tomaba como un int.
+
+Los datos de la API no tienen id, tienen head y tail:
+para poder buscar un dato específico en la API, se debe buscar por head y tail,
+ya que no tienen id. Así que a la hora de buscar un dato en la función
+modificarDatos() se muestra el id, pero se al buscar se compara con head + tail.
+
+Importar fecha a un nuevo dato:
+amiiboNuevo["release"]["eu"] = input("release(eu): ") no funciona, ya que esta
+intentando acceder directamente a la clave "eu" dentro de "release" antes de 
+que "release" exista como un diccionario. Por lo tanto se debe hacer así, 
+amiiboNuevo["release"] = {"eu": input("release(eu): ")} para que primero se
+crea el diccionario "release" y luego se le añade la clave "eu" con el valor
+que se le pase por input.

@@ -160,8 +160,6 @@ def modificarDatos():
          amiiboNuevo["image"] = input("image: ")
          amiiboNuevo["name"] = input("name: ")
          amiiboNuevo["release"] = {"eu": input("release(eu): ")}
-         #amiiboNuevo["release"]["eu"] = input("release(eu): ") no funciona, ya que esta intentando
-         #acceder directamente a la clave "eu" dentro de "release" antes de que "release" exista como un diccionario.
          amiiboNuevo["tail"] = input("tail: ")
          amiiboNuevo["type"] = input("type: ")
 
