@@ -42,7 +42,7 @@ def mostrarListaNombres():
 
 # Función que busca un amiibo por nombre
 def buscarPorNombre():
-   nombre = int(input("Ingrese el nombre del amiibo: "))
+   nombre = input("Ingrese el nombre del amiibo: ")
    cont = 0
    for i in datos:
       if i["name"] == nombre:
